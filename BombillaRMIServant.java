@@ -6,6 +6,8 @@ public class BombillaRMIServant extends UnicastRemoteObject implements BombillaR
 	
 	private static final long serialVersionUID = 1;
 	private boolean luzOn;
+	private double temperature;
+	private double consumption;
 	
 	// Constructor.
 	public BombillaRMIServant() throws RemoteException {
@@ -38,5 +40,19 @@ public class BombillaRMIServant extends UnicastRemoteObject implements BombillaR
 	// Metodo local -> Devovler el estado de la bombilla.
 	public boolean getBombilla() {
 		return(luzOn);
+	}
+
+	//Metodos get y set para la temperatura y el consumo
+	public double getTemperature() throws RemoteException {
+		return this.temperature;
+	}
+	public void setTemperature(double temperature) throws RemoteException {
+		this.temperature = temperature;
+	}
+	public double getConsumption() throws RemoteException {
+		return this.consumption;
+	}
+	public void setConsumption(double consumption) throws RemoteException {
+		this.consumption = consumption;
 	}
 }
