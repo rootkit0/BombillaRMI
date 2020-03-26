@@ -6,8 +6,8 @@ public class BombillaRMIServant extends UnicastRemoteObject implements BombillaR
 	
 	private static final long serialVersionUID = 1;
 	private boolean luzOn;
-	private double temperature;
-	private double consumption;
+	private double temperature = 0;
+	private double consumption = 0;
 	
 	// Constructor.
 	public BombillaRMIServant() throws RemoteException {
