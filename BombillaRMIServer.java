@@ -5,6 +5,12 @@ import java.rmi.server.*;
 public class BombillaRMIServer {
 	public static void main(String args[]) {
 		System.out.println("Cargando Servicio RMI");
+		//Fichero de politicas y gestor de seguridad del servidor
+		System.setProperty("java.security.policy", "./server.policy");
+		if (System.getSecurityManager() == null) {
+			System.setSecurityManager(new SecurityManager());
+		}
+
 		try {
 			// Cargar el servicio.
 			BombillaRMIServant servicioBombilla = new BombillaRMIServant();

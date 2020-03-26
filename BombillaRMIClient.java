@@ -2,8 +2,12 @@ import java.rmi.*;
 
 public class BombillaRMIClient {
 	public static void main(String args[]) {
-		
 		System.out.println("Buscar el servicio BombillaRMI");
+		//Fichero de politicas y gestor de seguridad del cliente
+		System.setProperty("java.security.policy", "./client.policy");
+		if (System.getSecurityManager() == null) {
+			System.setSecurityManager(new SecurityManager());
+		}
 		
 		try {
 			// Comprobar si se ha especificado la direccion del servicio de registros
