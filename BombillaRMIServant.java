@@ -1,5 +1,6 @@
 import java.rmi.*;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.*;
 
 // Implementacion Servidor
 public class BombillaRMIServant extends UnicastRemoteObject implements BombillaRMI {
@@ -8,7 +9,10 @@ public class BombillaRMIServant extends UnicastRemoteObject implements BombillaR
 	private boolean luzOn;
 	private double temperature = 0;
 	private double consumption = 0;
-	
+
+	private Vector<TemperatureListener> temperatureListeners = new Vector<TemperatureListener>();
+	private Vector<StatusListener> statusListeners = new Vector<StatusListener>();
+
 	// Constructor.
 	public BombillaRMIServant() throws RemoteException {
 		// Asignar valor por defecto = off
@@ -55,4 +59,22 @@ public class BombillaRMIServant extends UnicastRemoteObject implements BombillaR
 	public void setConsumption(double consumption) throws RemoteException {
 		this.consumption = consumption;
 	}
+
+	//Metodos add y remove para los listeners
+	public void addTemperatureListener ( TemperatureListener listener ) throws RemoteException {
+		System.out.println ("Anadiendo temperature listener: " + listener);
+		temperatureListeners.add(listener);
+    }
+    public void removeTemperatureListener ( TemperatureListener listener ) throws RemoteException {
+		System.out.println ("Quitando temperature listener: " + listener);
+		temperatureListeners.remove(listener);
+    }
+    public void addStatusListener ( StatusListener listener ) throws RemoteException {
+		System.out.println ("Anadiendo status listener: " + listener);
+		statusListeners.add(listener);
+    }
+    public void removeStatusListener ( StatusListener listener ) throws RemoteException {
+		System.out.println ("Quitando status listener -" + listener);
+		statusListeners.remove(listener);
+    }
 }

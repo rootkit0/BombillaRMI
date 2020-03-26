@@ -28,12 +28,12 @@ public class BombillaRMIClient {
 			System.out.println("Estado bombilla: " + servicioBombilla.isOn() );
 
 			if(servicioBombilla.isOn()) {
-				System.out.println("\nTemperatura bombilla: " + servicioBombilla.getTemperature());
+				System.out.println("\nTemperatura bombilla: " + servicioBombilla.getTemperature() + " kelvin");
 				System.out.println("Consumo bombilla: " + servicioBombilla.getConsumption() + " watts");
 				System.out.println("Asignando temperatura y consumo a la bombilla");
-				servicioBombilla.setTemperature(50.50);
+				servicioBombilla.setTemperature(6000);
 				servicioBombilla.setConsumption(60);
-				System.out.println("Temperatura bombilla: " + servicioBombilla.getTemperature());
+				System.out.println("Temperatura bombilla: " + servicioBombilla.getTemperature() + " kelvin");
 				System.out.println("Consumo bombilla: " + servicioBombilla.getConsumption() + " watts\n");
 			}
 			
